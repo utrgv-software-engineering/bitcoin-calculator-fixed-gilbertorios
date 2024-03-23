@@ -40,7 +40,7 @@ void main() {
       final BTC_Convert_Buttonfinder = find.byValueKey('Covert_BTC_Button');
 
       await driver.tap(USD_Buttonfinder);
-      driver.tap(BTC_Convert_Buttonfinder);
+      await driver.tap(BTC_Convert_Buttonfinder);
     });
 
     test("When i press BTC to USD i should go to the BTC to USD Screen",
@@ -50,6 +50,22 @@ void main() {
 
       await driver.tap(BTC_Buttonfinder);
       await driver.tap(USD_Convert_Buttonfinder);
+    });
+
+    test(
+        "When I press USD to BTC and type 64 and press convert then I should see 64000",
+        () async {
+      final USD_Buttonfinder = find.byValueKey('USD_BTC_Button');
+      final USD_TextFieldfinder = find.byValueKey('BTC-input');
+      final BTC_Convert_Buttonfinder = find.byValueKey('Covert_BTC_Button');
+      final USD_ConvertedValue = find.byValueKey("conversionResultUSD");
+
+      driver.tap(USD_Buttonfinder);
+      driver.tap(USD_TextFieldfinder);
+      driver.enterText('64');
+      driver.tap(BTC_Convert_Buttonfinder);
+
+      expect(await driver.getText(USD_ConvertedValue), "0.00100000");
     });
 
 //testWidgets("Should see 2 widgets", (WidgetTester tester))
