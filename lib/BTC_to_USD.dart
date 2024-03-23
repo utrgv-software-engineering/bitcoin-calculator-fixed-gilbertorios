@@ -42,7 +42,7 @@ class _BTCtoUSDState extends State<BTC_to_USD> {
               if (conversionResult.isNotEmpty)
                 Text(
                   'USD: $conversionResult',
-                  key: Key('conversionResult'), // For testability
+                  key: Key('conversionResultBTC'), // For testability
                 ),
             ],
           ),
