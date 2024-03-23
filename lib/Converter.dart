@@ -1,22 +1,15 @@
 class Converter {
-  static double BtctoUsdRate = 64000;
-  String _value;
+  static double btcToUsdRate = 64000; // Use camelCase for variable names
 
-  Converter(String value) {
-    _value = value;
+  static String convertBTCtoUSD(double btcValue) {
+    final double usdAmount = btcValue * btcToUsdRate;
+    return usdAmount
+        .toStringAsFixed(2); // Formats the output to 2 decimal places
   }
 
-  String word() {
-    return _value;
-  }
-
-  String convertBTCtoUSD(value) {
-    final double usdAmount = value * 0.00064;
-    return ("$usdAmount");
-  }
-
-  String convertUsdtoBTD(value) {
-    final double btcAmount = value * 64000;
-    return ("$btcAmount");
+  static String convertUsdtoBTC(double usdValue) {
+    final double btcAmount = usdValue / btcToUsdRate;
+    return btcAmount
+        .toStringAsFixed(8); // Formats the output to 8 decimal places for BTC
   }
 }
