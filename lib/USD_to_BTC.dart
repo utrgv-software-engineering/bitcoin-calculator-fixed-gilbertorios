@@ -15,7 +15,16 @@ class _State extends State<USD_to_BTC> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text("USD to BTC Conversion"),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () => Navigator.of(context).pop(),
+          key: Key('backButton'), // Key used in tests
+        ),
+      ),
       body: Container(
+        padding: EdgeInsets.all(16),
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -36,16 +45,14 @@ class _State extends State<USD_to_BTC> {
                 ),
               SizedBox(height: 20), // Added space for better UI appearance
               TextField(
-                key: Key('BTC-input'), // Corrected Key
+                key: Key('USD-input'),
                 controller: usdTextController,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(),
                   labelText: 'Enter USD',
-                  errorText:
-                      null, // Make sure this is not used to show dynamic error messages
                 ),
               ),
-              SizedBox(height: 20), // Added space for better UI appearance
+              SizedBox(height: 20),
               ElevatedButton(
                 key: Key('Convert_BTC_Button'),
                 child: Text('Convert'),

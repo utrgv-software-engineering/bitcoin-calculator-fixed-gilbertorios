@@ -14,6 +14,16 @@ class _BTCtoUSDState extends State<BTC_to_USD> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        // Add a title if you want
+        title: Text('BTC to USD Conversion'),
+        // Leading IconButton to act as a back button
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () => Navigator.of(context).pop(),
+          key: Key('backButton'), // Key used in tests
+        ),
+      ),
       body: Container(
         padding: EdgeInsets.all(16),
         child: Center(
